@@ -1,4 +1,42 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
+export const UserListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+width: 100%;
+height: 100vh;  
+justify-content:center;
+align-items:center;
+`;
+
+
+
+export const List = styled.div`
+  display: flex;
+  flex-direction: column;
+width: 100%;
+justify-content:center;
+align-items:center;
+`;
+
+export const List__Item = styled.div`
+  display: flex;
+width: 50%; 
+justify-content: space-between;
+`;
+
+export const Item__Wrapper = styled.div`
+background-color: 	rgb(211,211,211);
+width: 100%; 
+display: flex;
+margin:5px;
+justify-content:space-between;
+border-radius: 10px;
+padding-left: 10px;
+padding-right: 10px;
+`;
+
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -35,23 +73,28 @@ const UserList = () => {
   };
 
   return (
-    <div>
+    <UserListWrapper>
       <button onClick={onGetUserClick} disabled={isFetchDisabled}>
         Get users
       </button>
-      <div>
+      <List>
         {users.length !== 0
           ? users.map((user) => (
-              <div key={user.id}>
-                {user.name}
+              <List__Item key={user.id}>
+                <Item__Wrapper>
+                <p>{"ID: "+user.id+"."}</p>
+                <p>{user.name}</p>
+                <p>{user.email}</p>
+                <p>{user.phone}</p>
                 <button onClick={() => handleClick(user)}>LIKE</button>
-              </div>
+                </Item__Wrapper>
+              </List__Item>
             ))
           : "No data"}
 
         {error && "ERROR"}
-      </div>
-    </div>
+      </List>
+    </UserListWrapper>
   );
 };
 
