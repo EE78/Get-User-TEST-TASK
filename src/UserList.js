@@ -4,39 +4,36 @@ import styled from "styled-components";
 export const UserListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-width: 100%;
-height: 100vh;  
-justify-content:center;
-align-items:center;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 `;
-
-
 
 export const List = styled.div`
   display: flex;
   flex-direction: column;
-width: 100%;
-justify-content:center;
-align-items:center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const List__Item = styled.div`
   display: flex;
-width: 50%; 
-justify-content: space-between;
+  width: 50%;
+  justify-content: space-between;
 `;
 
 export const Item__Wrapper = styled.div`
-background-color: 	rgb(211,211,211);
-width: 100%; 
-display: flex;
-margin:5px;
-justify-content:space-between;
-border-radius: 10px;
-padding-left: 10px;
-padding-right: 10px;
+  background-color: rgb(211, 211, 211);
+  width: 100%;
+  display: flex;
+  margin: 5px;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
-
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -82,11 +79,11 @@ const UserList = () => {
           ? users.map((user) => (
               <List__Item key={user.id}>
                 <Item__Wrapper>
-                <p>{"ID: "+user.id+"."}</p>
-                <p>{user.name}</p>
-                <p>{user.email}</p>
-                <p>{user.phone}</p>
-                <button onClick={() => handleClick(user)}>LIKE</button>
+                  <p>{"ID: " + user.id + "."}</p>
+                  <p>{user.name}</p>
+                  <p>{user.email}</p>
+                  <p>{user.phone}</p>
+                  <button onClick={() => handleClick(user)}>LIKE</button>
                 </Item__Wrapper>
               </List__Item>
             ))
